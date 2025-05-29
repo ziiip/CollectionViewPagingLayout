@@ -334,6 +334,7 @@ extension CollectionViewPagingLayout {
         boundsObservation = collectionView?.observe(\.bounds, options: [.old, .new, .initial, .prior]) { [weak self] collectionView, _ in
             guard collectionView.bounds.size != self?.lastBounds?.size else { return }
             self?.lastBounds = collectionView.bounds
+            self?.collectionView?.reloadData()
             self?.invalidateLayoutInBatchUpdate(invalidateOffset: true)
         }
     }

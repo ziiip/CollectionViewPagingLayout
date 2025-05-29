@@ -31,6 +31,7 @@ class PagingCollectionViewCell<ValueType: Identifiable, Content: View>: UICollec
         self.index = index
         if hostingController != nil {
             updateView()
+            self.updatePagePaddings()
         } else {
             let viewController = UIHostingController(rootView: updateView()!)
             hostingController = viewController
